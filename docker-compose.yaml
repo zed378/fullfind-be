@@ -1,0 +1,45 @@
+version: "3.9"
+name: fullfind-be
+
+services:
+  # app:
+  #   image: zed378/fullfind-be:latest
+  #   container_name: fullfind-be
+  #   restart: always
+  #   ports:
+  #     - 5001:5000
+  #   volumes:
+  #     - ./uploads:/app/uploads
+  #     - ./log:/app/log
+  #   environment:
+  #     PORT: 5000
+  #     SECRET: b5a4f2eea787e66215fa0887404b7aaa4a08b9a72b27e009734381cec4f6f28b8b00fb763e1ec90ae5a4d7da0c693572cb6016c33b6c8049b8e2202b4051c10a
+
+  #     HOST_URL: http://localhost:5000
+  #     BACKUP_SCHEDULER: "0 0 * * *"
+
+  #     # mysql
+  #     DB_HOST: mysql
+  #     DB_USER: root
+  #     DB_PASS: ":ByOz70c>kel[f(r"
+  #     DB_NAME: fullfind
+  #     DB_PORT: 3306
+  #     DB_DIALECT: mysql
+  #   depends_on:
+  #     - mysql
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ":ByOz70c>kel[f(r"
+      MYSQL_DATABASE: fullfind
+      MYSQL_USER: fullfind
+      MYSQL_PASSWORD: ":ByOz70c>kel[f(r"
+      MYSQL_PORT: 3306
+      MYSQL_HOST: mysql
