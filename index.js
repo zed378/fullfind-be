@@ -5,7 +5,7 @@ const { Connection } = require("./config");
 const { ensureFolderExisted } = require("./src/middleware/createFolder");
 const { accessLog } = require("./src/middleware/accessLog");
 const { formatErrorToHTML } = require("./src/middleware/convertToHtml");
-const { cronBackup } = require("./src/middleware/backup");
+// const { cronBackup } = require("./src/middleware/backup");
 
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
@@ -42,10 +42,12 @@ app.use(activityLogger);
 // Routes
 const migrateRoute = require("./src/routes/migrate");
 const formRoute = require("./src/routes/form");
+const backupRoutes = require("./src/routes/backup");
 
 // Endpoint
 app.use("/migrate", migrateRoute);
 app.use("/form", formRoute);
+app.use("/backup", backupRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).send({
@@ -78,7 +80,7 @@ app.use((err, req, res, next) => {
 });
 
 Connection();
-cronBackup();
+// cronBackup();
 
 const port = process.env.PORT;
 app.listen(port, () => {
