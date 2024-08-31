@@ -35,6 +35,18 @@ app.use(limiter);
 app.use(helmet());
 app.use(xss());
 
+// Logging
+app.use(accessLog);
+app.use(activityLogger);
+
+// Routes
+const migrateRoute = require("./src/routes/migrate");
+const formRoute = require("./src/routes/form");
+
+// Endpoint
+app.use("/migrate", migrateRoute);
+app.use("/form", formRoute);
+
 app.get("/", (req, res) => {
   res.status(200).send({
     status: "Success",

@@ -1,0 +1,18 @@
+PORT=5000
+SECRET=your_secret # adjust your secret
+
+HOST_URL=http://your_backend_host:5000
+BACKUP_SCHEDULER="0 0 * * *" # set your database backup cron expression
+
+# mysql
+DB_HOST=your_db_host
+DB_USER=your_db_user
+DB_PASS=your_pass
+DB_NAME=your_db_name
+DB_PORT=your_db_port
+DB_DIALECT=mysql # you can set like mysql, postgres and etc if it supported by sequelize
+
+# setup your email
+MAIL_USER=your@mail.com
+MAIL_PASS=your_mail_pass
+MAIL_HOST=your_mail_host
