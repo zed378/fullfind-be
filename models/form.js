@@ -18,13 +18,10 @@ const Form = db.define(
     email: {
       type: DataTypes.STRING,
     },
-    company: {
+    revenue: {
       type: DataTypes.STRING,
     },
     web: {
-      type: DataTypes.STRING,
-    },
-    employee: {
       type: DataTypes.STRING,
     },
     role: {
