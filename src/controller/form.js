@@ -34,7 +34,7 @@ exports.createForm = async (req, res) => {
 
     const optServer = {
       from: `"FullFind Mailer" <${mailUser}>`,
-      to: "kembedt@gmail.com, admin@fullfind.co",
+      to: "kembedt@gmail.com, success@fullfind.co",
       subject: `${firstName} ${lastName} submitting form`,
       html: mustache.render(template, {
         firstName,
